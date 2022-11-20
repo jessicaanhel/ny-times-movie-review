@@ -78,16 +78,4 @@ const ListOfCards = ({ movieDetails }) : JSX.Element =>  {
     );
 }
 
-
-export async function getServerSideProps() {
-  const queryKey = "iron";
-  const apiKey = "nTCRt5WnuaiL5Q5VsPEgeGM8oZifd3Ma";
-  const endpoint = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?";
-  const createUrl = `${endpoint}query=${queryKey}&api-key=${apiKey}`;
-  const res = await fetch(createUrl);
-  const movieDetails = await res.json();
-
-  return { props: { movieDetails } };
-}
-
 export default ListOfCards;
