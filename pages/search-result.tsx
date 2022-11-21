@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { Text, Stack } from '@chakra-ui/react'
+import { Text, Stack, Box, SimpleGrid, IconButton, Button } from '@chakra-ui/react'
 import ListOfCards from '../components/ListOfCards';
 import { SearchContext, SearchContextProps } from './_app';
 import { useContext, useEffect, useState } from 'react';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
 
 function SearchResult({searchResultForMapping}) {
   const [queryKey, setQueryKey] = useState('lebowski');
@@ -20,17 +21,26 @@ function SearchResult({searchResultForMapping}) {
 
     if (searchResultForMapping){
       return (
-        <Stack spacing={3}>
-          <Text fontSize='4xl'> Search Result for keyword "{queryKey}"</Text>
-            <ListOfCards movieDetails={searchResultForMapping} />
-          <Text fontSize='xl'><Link href="/">Search last key word..</Link> </Text>
-      </Stack>
+        <><Button leftIcon={<ChevronLeftIcon />} colorScheme='pink' variant='solid' position='absolute' right='20px;' top='25px'>
+        Home
+      </Button>
+        <Box p={5}>
+          <SimpleGrid gap={12} p={12} columns={1}>
+            <Text fontSize='4xl'> Search Result for keyword "{queryKey}"</Text>
+            <Stack spacing={3} rowGap={3}>
+              <ListOfCards movieDetails={searchResultForMapping} />
+            </Stack>
+            <Text fontSize='xl'><Link href="/">Search last key word..</Link> </Text>
+          </SimpleGrid>
+        </Box></>
       );
     }else {
+      <Box p={5}>
       <Stack spacing={3}>
           <Text fontSize='4xl'> Movie does not exist</Text>
           <Text fontSize='xl'><Link href="/">Search last key word..</Link> </Text>
       </Stack>
+      </Box>
     }}
   
   
