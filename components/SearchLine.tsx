@@ -8,14 +8,14 @@ import { SearchContext } from "../pages/_app";
 const SearchLine = () : JSX.Element =>  {
   const { searchWord, setSearchWord, searchHistory, setSearchHistory } = useContext(SearchContext);
 
+  const router = useRouter()
+
   const handleChange = (keyword) => setSearchWord(keyword.target.value);
   
   const handleOnclick = () => {
     setSearchHistory([...searchHistory, searchWord]);
     router.push('/search-result');
 }
-
-  const router = useRouter()
   
     return (
       <InputGroup size="md">

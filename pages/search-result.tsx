@@ -4,6 +4,7 @@ import ListOfCards from '../components/ListOfCards';
 import { SearchContext, SearchContextProps } from './_app';
 import { useContext, useEffect, useState } from 'react';
 import { ChevronLeftIcon } from '@chakra-ui/icons';
+import router from 'next/router';
 
 function SearchResult({searchResultForMapping}) {
   const [queryKey, setQueryKey] = useState('lebowski');
@@ -22,7 +23,7 @@ function SearchResult({searchResultForMapping}) {
     if (searchResultForMapping){
       return (
         <><Button leftIcon={<ChevronLeftIcon />} colorScheme='pink' variant='solid' position='absolute' right='20px;' top='25px'>
-        Home
+        <Link href="/">Home</Link>
       </Button>
         <Box p={5}>
           <SimpleGrid gap={12} p={12} columns={1}>
