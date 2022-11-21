@@ -12,6 +12,8 @@ function SearchResult({searchResultForMapping}) {
       setQueryKey(searchWord);
     }, [searchWord]);
 
+    // Cant send data to getServerSideProps!
+    // 
     // useEffect(() => {
     //   getServerSideProps(queryKey);
     // }, [queryKey]);
@@ -44,15 +46,7 @@ export async function getServerSideProps(keyword?: string) {
   const searchResultForMapping = await res.json();
 
 return { props: { searchResultForMapping } };}
-  // if (keyword)
-  // {const queryWord = keyword;
-  // const apiKey = "nTCRt5WnuaiL5Q5VsPEgeGM8oZifd3Ma";
-  // const endpoint = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?";
-  // const createUrl = `${endpoint}query=${queryWord}&api-key=${apiKey}`;
-  // const res = await fetch(createUrl);
-  // const searchResultForMapping = await res.json();
 
-  // return { props: { searchResultForMapping } };}
 
 
 export default SearchResult
