@@ -32,9 +32,6 @@ interface MovieDetailsProps {
 
 const ListOfCards = ({movieDetails}) : JSX.Element =>  {
 
-
-  console.log(movieDetails);
-
   return (
     <SimpleGrid spacing={4} >
           {movieDetails.results.map((detail) => 

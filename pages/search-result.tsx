@@ -18,9 +18,6 @@ function SearchResult({searchResultForMapping}) {
     //   getServerSideProps(queryKey);
     // }, [queryKey]);
 
-
-    console.log(queryKey)
-
     if (searchResultForMapping){
       return (
         <Stack spacing={3}>

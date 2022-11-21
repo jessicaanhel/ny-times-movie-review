@@ -9,7 +9,6 @@ const SearchLine = () : JSX.Element =>  {
   const { searchWord, setSearchWord, searchHistory, setSearchHistory } = useContext(SearchContext);
 
   const handleChange = (keyword) => setSearchWord(keyword.target.value);
-  console.log(searchWord);
   
   const handleOnclick = () => {
     setSearchHistory([...searchHistory, searchWord]);
