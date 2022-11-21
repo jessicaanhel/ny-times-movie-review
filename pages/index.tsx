@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Head from 'next/head'
-import Link from 'next/link';
 import SearchLine from '../components/SearchLine';
 import { Box } from '@chakra-ui/react';
+import { SearchContext, SearchContextProps } from './_app';
 
 export default function Home() {
-
+  const { searchHistory } = useContext<SearchContextProps>(SearchContext);
   return (
     <div className="container">
       <Head>
@@ -54,7 +54,7 @@ export default function Home() {
         {/* <p className="description">
         Check <Link href="/searchResult">your last searchings here!</Link>
         </p> */}
-        
+
       </main>
 
       <footer>
