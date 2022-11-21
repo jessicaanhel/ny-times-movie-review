@@ -34,7 +34,7 @@ const ListOfCards = ({movieDetails}) : JSX.Element =>  {
 
   return (
     <SimpleGrid spacing={4} >
-          {movieDetails.results.map((detail) => 
+          {movieDetails.map((detail) => 
       <>
       <div>
     <Card

@@ -2,10 +2,8 @@ import React, { useContext, useState } from 'react';
 import Head from 'next/head'
 import SearchLine from '../components/SearchLine';
 import { Box } from '@chakra-ui/react';
-import { SearchContext, SearchContextProps } from './_app';
 
 export default function Home() {
-  const { searchHistory } = useContext<SearchContextProps>(SearchContext);
   return (
     <div className="container">
       <Head>
