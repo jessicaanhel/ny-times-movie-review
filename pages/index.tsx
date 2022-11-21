@@ -1,61 +1,70 @@
+import React, { useState } from 'react';
 import Head from 'next/head'
+import Link from 'next/link';
+import SearchLine from '../components/SearchLine';
+import { Box } from '@chakra-ui/react';
 
 export default function Home() {
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Welcome to the movie reviews search engine</title>
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Welcome to the movie reviews search engine!
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Get started by typing a keyword
         </p>
+        
+        <Box w='80%'>
+        <SearchLine />
+        </Box>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="/" className="card">
+            <text>ostatnie wyszukiwanie 1&rarr;</text>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href="/" className="card">
+            <text>ostatnie wyszukiwanie 2 &rarr;</text>
           </a>
 
           <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="/"
             className="card"
           >
-            <h3>Deploy &rarr;</h3>
+            <text>ostatnie wyszukiwanie 3 &rarr;</text>
+          </a>
+
+          <a
+            href="/"
+            className="card"
+          >
+            <text>ostatnie wyszukiwanie 4 &rarr;</text>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
         </div>
+        
+        {/* <p className="description">
+        Check <Link href="/searchResult">your last searchings here!</Link>
+        </p> */}
+        
       </main>
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/jessicaanhel"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          <img src="https://avatars.githubusercontent.com/u/58396356?v=4" alt="jessicaanhel" className="logo" />
         </a>
       </footer>
 

@@ -30,9 +30,7 @@ interface MovieDetailsProps {
   status: string;
 }
 
-const ListOfCards = ({ movieDetails }) : JSX.Element =>  {
-
-  movieDetails.results.forEach(element => console.log(element.multimedia));
+const ListOfCards = ({movieDetails}) : JSX.Element =>  {
 
 
   console.log(movieDetails);
