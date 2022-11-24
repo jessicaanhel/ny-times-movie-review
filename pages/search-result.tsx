@@ -5,12 +5,16 @@ import { useEffect, useState } from 'react';
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router'
 
+export const lastFiveSearchings = [];
+
 const SearchResult = () => {
   const [showResult, setShowResult] = useState([]);
   const [keyword, setKeyword] = useState((useRouter().query.keyword || '').toString());
 
   const apiKey = "nTCRt5WnuaiL5Q5VsPEgeGM8oZifd3Ma";
   const endpoint = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?";
+
+  let openMovieDoesntExist = false;
 
   useEffect(()=>{
     (async()=>{
@@ -19,9 +23,20 @@ const SearchResult = () => {
       const searchResult = await res.json();
       setShowResult(searchResult.results);
     })()
+    if (lastFiveSearchings.length >5){
+      lastFiveSearchings.shift();
+      lastFiveSearchings.push(keyword)
+
+    }
+    else if (keyword === undefined || keyword === '') {
+      openMovieDoesntExist = true;
+    }
+    lastFiveSearchings.push(keyword);
   },[keyword]);
 
-  const areReviews = showResult.length > 1;
+  console.log(lastFiveSearchings);
+
+  const areReviews = showResult != null;
 
   if (areReviews){
     return (
@@ -34,12 +49,11 @@ const SearchResult = () => {
           <Stack spacing={3} rowGap={3}>
             <ListOfCards movieDetails={showResult} />
           </Stack>
-          <Text fontSize='xl'><Link href="/">Search last key word..</Link> </Text>
         </SimpleGrid>
       </Box></>
     );
   } 
-  else {
+  else if (openMovieDoesntExist || showResult === null){
     <Box p={5}>
     <Stack spacing={3}>
         <Text fontSize='4xl'> Movie does not exist</Text>

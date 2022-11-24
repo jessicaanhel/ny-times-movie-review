@@ -1,9 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import SearchLine from '../components/SearchLine';
-import { Box } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
+import { lastFiveSearchings } from './search-result';
+
 
 export default function Home() {
+
+
   return (
     <div className="container">
       <Head>
@@ -19,39 +23,19 @@ export default function Home() {
           Get started by typing a keyword
         </p>
         
-        <Box w='80%'>
+        <Box w='80%' margin={10}>
         <SearchLine />
         </Box>
-
-        <div className="grid">
-          <a href="/" className="card">
-            <text>ostatnie wyszukiwanie 1&rarr;</text>
-          </a>
-
-          <a href="/" className="card">
-            <text>ostatnie wyszukiwanie 2 &rarr;</text>
-          </a>
-
-          <a
-            href="/"
-            className="card"
-          >
-            <text>ostatnie wyszukiwanie 3 &rarr;</text>
-          </a>
-
-          <a
-            href="/"
-            className="card"
-          >
-            <text>ostatnie wyszukiwanie 4 &rarr;</text>
-            <p>
-            </p>
-          </a>
-        </div>
         
-        {/* <p className="description">
-        Check <Link href="/searchResult">your last searchings here!</Link>
-        </p> */}
+        <SimpleGrid spacing={4} >
+          <div className="grid">
+          {lastFiveSearchings.map((lastKeyword) => 
+
+            <a href={`/search-result?keyword=${lastKeyword}`} className="card">
+              <text>Searching results for '{lastKeyword}'' &rarr;</text>
+            </a>
+          )}
+         </div></SimpleGrid>
 
       </main>
 
