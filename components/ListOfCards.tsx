@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, CardBody, Stack, Heading, Text, Card, SimpleGrid } from "@chakra-ui/react";
+import {Image, CardBody, Stack, Heading, Text, Card, SimpleGrid, Link } from "@chakra-ui/react";
 
 interface MovieDetailsProps {
   copyright: string;
@@ -63,6 +63,7 @@ const ListOfCards = ({movieDetails}) : JSX.Element =>  {
       <Heading size='md'>{detail.display_title}</Heading>
       <Text py='2'>{detail.summary_short}
       </Text>
+      <Text fontSize='xl'><Link href={detail.link.url}>Read review</Link> </Text>
     </CardBody>
     </Stack>
     </Card>
