@@ -21,8 +21,6 @@ const SearchResult = () => {
     })()
   },[keyword]);
 
-  console.log(useRouter().query.history)
-
   const areReviews = showResult.length > 1;
 
   if (areReviews){
