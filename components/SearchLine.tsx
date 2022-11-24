@@ -2,34 +2,33 @@ import { Button } from "@chakra-ui/button";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import React, { useState } from "react";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 
 const SearchLine = () : JSX.Element =>  {
   const [searchWord, setSearchWord ] = useState('');
-  const [ searchHistory, setSearchHistory] = useState([]);
 
   const router = useRouter()
 
-  const handleChange = (keyword) => setSearchWord(keyword.target.value);
+  const handleChangeForKeyWord = (keyword) => setSearchWord(keyword.target.value);
   
-  const handleOnclick = () => {
-    setSearchHistory([...searchHistory, searchWord]);
+  const handleOnclickForSearchButton = () => {
     router.push({
       pathname: '/search-result',
-      query: { keyword: searchWord, history: searchHistory },
+      query: { keyword: searchWord},
   })
 }
   
     return (
       <InputGroup size="md">
       <Input
-        onChange={handleChange}
+        onChange={handleChangeForKeyWord}
         placeholder='Enter the name of the movie or keyword'
         size='md'
         value={searchWord}
       />
         <InputRightElement width="4.5rem">
-          <Button onClick={handleOnclick}>
+          <Button onClick={handleOnclickForSearchButton}>
             Enter
           </Button>
         </InputRightElement>
